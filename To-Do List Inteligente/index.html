@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Tarefas e Rotinas</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#6c5ce7">
+    
+    <link rel="apple-touch-icon" href="icon-512.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+</head>
+<body>
+
+    <div class="date-selector">
+        <input type="date" id="calendar-input">
+    </div>
+
+    <div class="header-tempo">
+        <div id="relogio-digital">00:00:00</div>
+        <div id="data-atual">Carregando data...</div>
+    </div>
+
+    <div class="container">
+        <h2>Minhas Tarefas ⚡</h2>
+
+<div class="progress-container">
+    <div id="progress-bar"></div>
+</div>
+<p id="progress-text">0% concluído</p>
+        
+        <div class="input-group">
+            <div class="input-row">
+                <button id="routine-btn" title="Adicionar Rotina">📅</button>
+                <input type="text" id="todo-input" placeholder="O que vais fazer?">
+                <input type="time" id="todo-time">
+                <button id="add-btn">Add</button>
+            </div>
+        </div>
+
+        <div class="filters">
+            <button onclick="filterTasks('pending')" id="filter-pending" class="active">Pendentes</button>
+            <button onclick="filterTasks('completed')" id="filter-completed">Concluídas</button>
+            <button onclick="filterTasks('all')" id="filter-all">Todas</button>
+        </div>
+
+        <ul id="todo-list"></ul>
+    </div>
+
+    <div id="routine-modal" class="modal">
+        <div class="modal-content">
+            <h3>Agendar Rotina 📅</h3>
+            <input type="text" id="routine-text" placeholder="Ex: Ler a Bíblia">
+            <div class="date-range">
+                <div>
+                    <label>Início:</label>
+                    <input type="date" id="routine-start">
+                </div>
+                <div>
+                    <label>Fim:</label>
+                    <input type="date" id="routine-end">
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button onclick="closeRoutineModal()" class="btn-cancel">Cancelar</button>
+                <button onclick="saveRoutine()" class="btn-confirm">Salvar Rotina</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
