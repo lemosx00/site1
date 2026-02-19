@@ -215,3 +215,11 @@ setInterval(render, 30000);
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js');
 }
+// Esconde a tela de loading quando a página carregar totalmente
+window.addEventListener('load', () => {
+    const loadingScreen = document.getElementById('loading-screen');
+    setTimeout(() => {
+        loadingScreen.style.opacity = '0';
+        setTimeout(() => loadingScreen.style.display = 'none', 500);
+    }, 500); // Meio segundo extra só para dar um efeito suave
+});
